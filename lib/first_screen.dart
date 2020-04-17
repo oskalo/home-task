@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
 
+class Argument {
+  final String msg;
+  Argument(this.msg);
+}
+
 class FirstScreen extends StatelessWidget {
-  String _msg;
-
-  FirstScreen({String msg}):_msg = msg;
-
   Widget build(BuildContext context) {
-    if (_msg != null){
+    final Argument args = ModalRoute.of(context).settings.arguments;
+    if (args != null){
       return SimpleDialog(
-        title: Text('Got value $_msg'),
+        title: Text(args.msg),
         children: <Widget>[
           SimpleDialogOption(
             onPressed: () { Navigator.pushNamed(context, "/"); },

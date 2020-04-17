@@ -10,13 +10,13 @@ class SecondScreen extends StatelessWidget {
         children: <Widget>[
           RaisedButton(
             onPressed: () {
-              Navigator.pushNamed(context, '/', arguments: FirstScreen(msg: "42"));
+              Navigator.pushNamed(context, '/', arguments: Argument("42"));
             },
             child: const Text('Return 42'),
           ),
           RaisedButton(
             onPressed: () {
-              Navigator.pushNamed(context, '/', arguments: FirstScreen(msg: "AbErVaLlG"));
+              Navigator.pushNamed(context, '/', arguments: Argument("AbErVaLlG"));
             },
             child: const Text('Return AbErVaLlG'),
           )
