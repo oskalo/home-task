@@ -9,10 +9,10 @@ class FirstScreen extends StatelessWidget {
             body: Center(
                 child: RaisedButton(
               onPressed: () async {
-                var navigationResult = await Navigator.of(context).push(
-                    MaterialPageRoute(builder: (context) => SecondScreen()));
-                if (navigationResult == "42"){
-                  print("42");
+                var navigationResult = await Navigator.of(context)
+                    .push(MaterialPageRoute(builder: (BuildContext context) => SecondScreen()));
+                if (navigationResult == "42") {
+                  print("ok");
                 }
               },
               child: const Text('Second scrin'),

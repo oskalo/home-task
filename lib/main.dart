@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
 import 'first_screen.dart';
 
-void main() => runApp(FirstScreen());
+void main() => runApp(startScreen());
+
+Widget startScreen() => FirstScreen();
