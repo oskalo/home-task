@@ -3,4 +3,4 @@ import 'first_screen.dart';
 
 void main() => runApp(startScreen());
 
-Widget startScreen() => FirstScreen();
+Widget startScreen() => MaterialApp(home: FirstScreen());

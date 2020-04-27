@@ -2,20 +2,42 @@ import 'package:flutter/material.dart';
 import 'package:hometask/second_screen.dart';
 
 class FirstScreen extends StatelessWidget {
+  String _msg;
+  FirstScreen({String msg}) {
+    if (msg != null) {
+      print(msg);
+      this._msg = msg;
+    }
+  }
+
   Widget build(BuildContext context) {
-    return MaterialApp(
-        home: Scaffold(
-            appBar: AppBar(title: Text('First screen')),
-            body: Center(
-                child: RaisedButton(
-              onPressed: () async {
-                var navigationResult = await Navigator.of(context)
-                    .push(MaterialPageRoute(builder: (BuildContext context) => SecondScreen()));
-                if (navigationResult == "42") {
-                  print("ok");
-                }
-              },
-              child: const Text('Second scrin'),
-            ))));
+    print(this._msg);
+    if (this._msg != null) {
+      print(2);
+      return SimpleDialog(
+        title: Text("$_msg"),
+        children: <Widget>[
+          SimpleDialogOption(
+            onPressed: () {},
+            child: const Text('Ok'),
+          ),
+        ],
+      );
+    }
+
+    return (Scaffold(
+        appBar: AppBar(title: Text('First screen')),
+        body: Center(
+            child: RaisedButton(
+          onPressed: () async {
+            var navigationResult = await Navigator.of(context).push(
+                MaterialPageRoute(
+                    builder: (BuildContext context) => SecondScreen()));
+            if (navigationResult != null) {
+              FirstScreen(msg:navigationResult.toString()).build(context);
+            }
+          },
+          child: const Text('Second screen'),
+        ))));
   }
 }

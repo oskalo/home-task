@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 
 class SecondScreen extends StatelessWidget {
   Widget build(BuildContext context) {
-    return MaterialApp(
-        home: Scaffold(
+    return  Scaffold(
       appBar: AppBar(title: Text("Second screen")),
       body: Center(
           child: Column(
@@ -22,6 +21,6 @@ class SecondScreen extends StatelessWidget {
           )
         ],
       )),
-    ));
+    );
   }
 }
