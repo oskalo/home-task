@@ -11,7 +11,6 @@ class FirstScreen extends StatelessWidget {
   }
 
   Widget build(BuildContext context) {
-    print(this._msg);
     if (this._msg != null) {
       return SimpleDialog(
         title: Text("$_msg"),
