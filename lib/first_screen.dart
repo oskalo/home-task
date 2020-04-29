@@ -33,9 +33,28 @@ class FirstScreen extends StatelessWidget {
                     builder: (BuildContext context) => SecondScreen()));
             if (navigationResult != null) {
               FirstScreen(msg: navigationResult.toString()).build(context);
+              showSimpleDialog(context, navigationResult.toString());
             }
           },
           child: const Text('Second screen'),
         ))));
   }
 }
+
+void showSimpleDialog(BuildContext context, String content) =>  showDialog<bool>(
+    context: context,
+    builder: (context) {
+      return AlertDialog(
+        title: const Text('Yo'),
+        content: Text(content),
+
+        actions: <Widget>[
+          FlatButton(
+              child: const Text('Ok'),
+              onPressed: () {
+                Navigator.of(context).pop();
+              }),
+
+        ],
+      );
+    });
