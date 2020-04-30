@@ -15,7 +15,6 @@ class FirstScreen extends StatelessWidget {
             if (navigationResult != null) {
               print(navigationResult);
               showSimpleDialog(context, navigationResult as Post);
-              //FirstScreen(msg: navigationResult.toString()).build(context);
             }
           },
           child: const Text('Second screen'),
