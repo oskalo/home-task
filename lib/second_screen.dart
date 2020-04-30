@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:hometask/post.dart';
 
 import 'dart:async';
 import 'dart:convert';
@@ -13,39 +14,12 @@ class HttpService {
     if (res.statusCode == 200) {
       List<dynamic> body = jsonDecode(res.body);
 
-      List<Post> posts = body
-          .map(
-            (dynamic item) => Post.fromJson(item),
-          )
-          .toList();
-
+      List<Post> posts =
+          body.map((dynamic item) => Post.fromJson(item)).toList();
       return posts;
     } else {
       throw "Can't get posts.";
     }
-  }
-}
-
-class Post {
-  final int userId;
-  final int id;
-  final String title;
-  final String body;
-
-  Post({
-    @required this.userId,
-    @required this.id,
-    @required this.title,
-    @required this.body,
-  });
-
-  factory Post.fromJson(Map<String, dynamic> json) {
-    return Post(
-      userId: json['userId'] as int,
-      id: json['id'] as int,
-      title: json['title'] as String,
-      body: json['body'] as String,
-    );
   }
 }
 
@@ -55,7 +29,7 @@ class SecondScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Posts"),
+        title: const Text("Posts"),
       ),
       body: FutureBuilder(
         future: httpService.getPosts(),
@@ -72,7 +46,7 @@ class SecondScreen extends StatelessWidget {
                         subtitle: Text('${post.body}'),
                         trailing: RaisedButton(
                           onPressed: () {
-                            Navigator.of(context).pop("${post.id}");
+                            Navigator.of(context).pop(post);
                           },
                           child: Icon(Icons.more_vert),
                         ),
