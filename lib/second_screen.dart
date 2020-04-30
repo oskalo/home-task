@@ -41,14 +41,14 @@ class SecondScreen extends StatelessWidget {
                   .map(
                     (Post post) => Card(
                       child: ListTile(
-                        leading: FlutterLogo(size: 72.0),
+                        leading: const FlutterLogo(size: 72.0),
                         title: Text('${post.title}'),
                         subtitle: Text('${post.body}'),
                         trailing: RaisedButton(
                           onPressed: () {
                             Navigator.of(context).pop(post);
                           },
-                          child: Icon(Icons.more_vert),
+                          child: const Icon(Icons.more_vert),
                         ),
                         isThreeLine: true,
                       ),
