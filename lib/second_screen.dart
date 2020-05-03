@@ -4,6 +4,7 @@ import 'package:hometask/post.dart';
 
 import 'dart:async';
 import 'dart:convert';
+import 'second_screen.i18n.dart';
 
 class HttpService {
   final String postsURL = "https://jsonplaceholder.typicode.com/posts";
@@ -29,7 +30,7 @@ class SecondScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Posts"),
+        title: Text("Posts".i18n),
       ),
       body: FutureBuilder(
         future: httpService.getPosts(),
