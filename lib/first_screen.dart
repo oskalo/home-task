@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hometask/second_screen.dart';
+import 'package:hometask/video.dart';
 
 class FirstScreen extends StatelessWidget {
   Widget build(BuildContext context) {
@@ -8,12 +9,9 @@ class FirstScreen extends StatelessWidget {
         body: Center(
             child: RaisedButton(
           onPressed: () async {
-            var navigationResult = await Navigator.of(context).push(
+            Navigator.of(context).push(
                 MaterialPageRoute(
-                    builder: (BuildContext context) => SecondScreen()));
-            if (navigationResult != null) {
-              showSimpleDialog(context, navigationResult.toString());
-            }
+                    builder: (BuildContext context) => Video()));
           },
           child: const Text('Second screen'),
         ))));
