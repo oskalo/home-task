@@ -1,20 +1,37 @@
 import 'package:flutter/material.dart';
 import 'package:hometask/second_screen.dart';
 import 'package:hometask/video.dart';
+import 'package:hometask/web_view.dart';
 
 class FirstScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return (Scaffold(
-        appBar: AppBar(title: Text('First screen')),
-        body: Center(
-            child: RaisedButton(
-          onPressed: () async {
-            Navigator.of(context).push(
+      appBar: AppBar(title: Text('First screen')),
+      body: ListView(
+        children: <Widget>[
+          RaisedButton(
+            onPressed: () async {
+              Navigator.of(context).push(
                 MaterialPageRoute(
-                    builder: (BuildContext context) => Video()));
-          },
-          child: const Text('Second screen'),
-        ))));
+                  builder: (BuildContext context) => Video(),
+                ),
+              );
+            },
+            child: const Text('Video'),
+          ),
+          RaisedButton(
+            onPressed: () async {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (BuildContext context) => MyWeb(),
+                ),
+              );
+            },
+            child: const Text('Web view'),
+          )
+        ],
+      ),
+    ));
   }
 }
 
